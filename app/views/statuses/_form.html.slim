@@ -1,0 +1,11 @@
+= simple_form_for(@status) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :yesterday_info
+    = f.input :goals_achieved
+    = f.input :today_info
+    = f.input :blockers_info
+
+  .form-actions
+    = f.button :submit

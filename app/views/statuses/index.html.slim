@@ -1,0 +1,31 @@
+h1 Listing statuses
+
+table
+  thead
+    tr
+      th Yesterday info
+      th Today info
+      th Blockers info
+      th User
+      th Goals achieved
+      th Date
+      th
+      th
+      th
+
+  tbody
+    - @statuses.each do |status|
+      tr
+        td = status.yesterday_info
+        td = status.today_info
+        td = status.blockers_info
+        td = status.user
+        td = status.goals_achieved
+        td = status.date
+        td = link_to 'Show', status
+        td = link_to 'Edit', edit_status_path(status)
+        td = link_to 'Destroy', status, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Status', new_status_path

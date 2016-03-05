@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Yesterday info:
+  = @status.yesterday_info
+p
+  strong Today info:
+  = @status.today_info
+p
+  strong Blockers info:
+  = @status.blockers_info
+p
+  strong User:
+  = @status.user
+p
+  strong Goals achieved:
+  = @status.goals_achieved
+p
+  strong Date:
+  = @status.date
+
+= link_to 'Edit', edit_status_path(@status)
+'|
+= link_to 'Back', statuses_path
