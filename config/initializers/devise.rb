@@ -14,6 +14,6 @@ Devise.setup do |config|
   config.password_length = 8..72
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
-  config.omniauth :slack, Rails.application.secrets.slack['app_id'], Rails.application.secrets.slack['app_secret'], scope: 'bot'
+  config.omniauth :slack, Rails.application.secrets.slack['app_id'], Rails.application.secrets.slack['app_secret'], provider_ignores_state: true, scope: 'client'
 end
 

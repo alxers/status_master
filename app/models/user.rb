@@ -7,7 +7,10 @@ class User < ActiveRecord::Base
 
 
 
-  def self.find_for_slack_oauth(access_token)
+  def self.find_for_slack_oauth(access_token, params)
+    url = 'https://slack.com/api/oauth.access'
+    resp =  HTTParty.get(url, query: {client_id: Rails.application.secrets.slack['app_id'], client_secret: Rails.application.secrets.slack['app_secret'], code: params['code']})
+
     binding.pry()
     if user = User.where(:uid => access_token.info.user_id).first
       user
